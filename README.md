@@ -207,7 +207,7 @@ done
 
 ## Taxonomic classification
 ### qiime2
-#### Importing data
+#### Step.1 Importing data
 Our data is paired interleaved one.Qiime2 hasn't developed the importation format yet.
 We need first to split the forward and reverse reads.
 Below is the script we are working on;It is a qiime 1 script;its a borrowed script.
