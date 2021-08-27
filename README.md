@@ -198,9 +198,9 @@ done
 #### Output
 ````
 ./Transcriptomics/
--mapped reads ./bac-16s/  bac-16S-mapped-merg_bc08_rna.fq <- sequences with rRNA
--Unmapped reads ./untarget_reads/ bac-16S-unmapped-merg_bc08_rna.fq  <- sequences without any rRNA
--logs .aligned/ bac-16S-mapped-merg_bc08_rna.log  <- log from SortMeRNA analysis
+-mapped reads ./bac-16s/  bac-16S-mapped-merg_bc08_rna.fq              <- sequences with mapped selected rRNAs i.e bac-16S
+-Unmapped reads ./untarget_reads/ bac-16S-unmapped-merg_bc08_rna.fq    <- sequences with umapped  rRNA
+-logs .aligned/ bac-16S-mapped-merg_bc08_rna.log                       <- log from SortMeRNA analysis
 ````
 #### Example output of one of the mapped files(bac-16S)
 ![image](https://i.imgur.com/tVpV8WI.png)
