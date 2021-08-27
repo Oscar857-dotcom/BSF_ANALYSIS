@@ -202,6 +202,9 @@ done
 -Unmapped reads ./untarget_reads/ bac-16S-unmapped-merg_bc08_rna.fq  <- sequences without any rRNA
 -logs .aligned/ bac-16S-mapped-merg_bc08_rna.log  <- log from SortMeRNA analysis
 ````
+#### Example output of one of the mapped files(bac-16S)
+![image](https://i.imgur.com/tVpV8WI.png)
+
 ## Taxonomic classification
 ### qiime2
-
+#### Importing data
