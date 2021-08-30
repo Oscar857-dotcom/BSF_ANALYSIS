@@ -11,7 +11,8 @@ conda activate transcriptomics
 ````
 ## The pipeline.
 #### Overview
-![Data](https://user-images.githubusercontent.com/76898485/131299652-fdf248e9-471c-4008-81c9-1c113435497b.gif
+![Data](https://user-images.githubusercontent.com/76898485/131299652-fdf248e9-471c-4008-81c9-1c113435497b.gif)
+
 #### pipeline workflow
 ![image](https://i.imgur.com/Syr0V2T.png)
 ## Workflow
