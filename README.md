@@ -287,4 +287,80 @@ def main():
 if __name__ == "__main__":
     main()
 ````
+````
+#This script takes in qiime artifacts,barcode sequences and demultiplexes the artifacts
+
+module load qiime2/2020.6	#load qiime
+
+mkdir ../untrimmed
+mkdir ../demux_sequences
+mkdir ../visualization
+
+
+file1="../../metadata/control7.tsv"
+file2="../../metadata/experimental8.tsv"
+file3="../../metadata/experimental9.tsv"
+file4="../../metadata/control10.tsv"
+file5="../../metadata/experimental11.tsv"
+#data1="./bac-16S-mapped-merg_bc07_rna.qza"
+data2="./bac-16S-mapped-merg_bc08_rna.qza"
+data3="./bac-16S-mapped-merg_bc09_rna.qza"
+data4="./bac-16S-mapped-merg_bc10_rna.qza"
+data5="./bac-16S-mapped-merg_bc11_rna.qza"
+
+for file in ./*;
+do
+  	name=$(basename ${file} .qza)
+        data1=./bac-16S-mapped-merg_bc07_rna.qza
+        # demultiplexing
+
+        if $data1
+        then
+            	qiime cutadapt demux-single --i-seqs $file \
+                --m-barcodes-file $file1 --m-barcodes-column BARCODE \
+                --p-error-rate 0 --o-per-sample-sequences demux_$name.qza \
+                --o-untrimmed-sequences untrimmed_$name.qza --verbose
+
+        elif $data2
+        then
+            	qiime cutadapt demux-single --i-seqs $file \
+                --m-barcodes-file $file2 --m-barcodes-column BARCODE \
+                --p-error-rate 0 --o-per-sample-sequences demux_$name.qza \
+                --o-untrimmed-sequences untrimmed_$name.qza --verbose
+
+          elif $data3
+        then
+            	qiime cutadapt demux-single --i-seqs $file \
+                --m-barcodes-file $file3 --m-barcodes-column BARCODE \
+                --p-error-rate 0 --o-per-sample-sequences demux_$name.qza \
+        --o-untrimmed-sequences untrimmed_$name.qza --verbose
+
+        elif $data4
+        then
+            	qiime cutadapt demux-single --i-seqs $file \
+                --m-barcodes-file $file4 --m-barcodes-column BARCODE \
+                --p-error-rate 0 --o-per-sample-sequences demux_$name.qza \
+                --o-untrimmed-sequences untrimmed_$name.qza --verbose
+
+        else $data5
+                qiime cutadapt demux-single --i-seqs $file \
+                --m-barcodes-file $file5 --m-barcodes-column BARCODE \
+                --p-error-rate 0 --o-per-sample-sequences demux_$name.qza \
+                --o-untrimmed-sequences untrimmed_$name.qza --verbose
+         #echo $name
+
+        #Visualize the demultiplexed sequences
+
+        qiime demux summarize \
+        --i-data demux_$name.qza \
+        --o-visualization ../visualization/demux_$name.qzv
+
+        fi
+
+	# Organize the folders
+        mv demux* ../demux_sequences
+        mv untrimmed* ../untrimmed
+
+
+done
 
